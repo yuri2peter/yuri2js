@@ -1,0 +1,32 @@
+{
+  "name": "yuri2js",
+  "version": "0.1.0",
+  "description": "Some useful tools for nodejs development",
+  "main": "yuri2.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuri2peter/yuri2js.git"
+  },
+  "dependencies": {
+    "xml2js": "~0.4.19"
+  },
+  "keywords": [
+    "nodejs",
+    "yuri2",
+    "web",
+    "tools"
+  ],
+  "author": {
+    "name": "yuri2",
+    "email": "824831811@qq.com",
+    "url": "https://yuri2.cn"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yuri2peter/yuri2js/issues"
+  },
+  "homepage": "https://github.com/yuri2peter/yuri2js#readme"
+}
