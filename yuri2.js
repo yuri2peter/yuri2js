@@ -70,6 +70,54 @@ module.exports={
         return Math.floor(Math.random() * c + n);
     },
 
+    /** 
+     * 从koa2提取的composer设计
+     * 返回一个接受ctx形参的方法
+     * @param  middlewares array 中间件的数组
+     * 形如[
+     *    async function(ctx,next){
+     *      //do something...
+     *      await next();
+     *    },
+     *    async function(ctx,next){
+     *      //do something...
+     *      await next();
+     *      //do something...
+     *    },
+     * ]
+     * 
+     * */
+    compose:function (middlewares) {
+        if (!Array.isArray(middlewares)) throw new TypeError('Middleware stack must be an array!');
+        for (const fn of middlewares) {
+            if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
+        }
 
+        /**
+         * @param {Object} context
+         * @return {Promise}
+         * @api public
+         */
+
+        return function (context, next) {
+            // last called middleware #
+            let index = -1;
+            return dispatch(0);
+            function dispatch (i) {
+                if (i <= index) return Promise.reject(new Error('next() called multiple times'));
+                index = i;
+                let fn = middlewares[i];
+                if (i === middlewares.length) fn = next;
+                if (!fn) return Promise.resolve();
+                try {
+                    return Promise.resolve(fn(context, function next () {
+                        return dispatch(i + 1)
+                    }))
+                } catch (err) {
+                    return Promise.reject(err)
+                }
+            }
+        }
+    }
 
 };
