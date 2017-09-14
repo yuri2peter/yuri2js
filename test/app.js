@@ -1,14 +1,16 @@
-const log=console.log;
-log('test start');
+const log = console.log;
 
-const yuri2=require('../yuri2');
+const yuri2 = require('../yuri2');
 
-let handle= ()=>{
-    let xml=yuri2.yuri2Format.jsonToXml({a:1,b:[1,2,3]});
-    log(xml);
-    let json=yuri2.yuri2Format.xmlToJson(xml);
-    log(json)
-};
-
-handle();
-log('end');
+let app = yuri2.yuri2Server.createServer();
+app.use(async function (ctx, next) {
+    let router = yuri2.yuri2Server.createRouter(ctx);
+    router.route();
+    await next();
+});
+app.use(async function (ctx, next) {
+    ctx.dump(yuri2.yuri2Format.urldecode('%E4%BD%A0%E5%A5%BD'));
+    ctx.res.send('hello world');
+    await next();
+});
+app.listen(8080);

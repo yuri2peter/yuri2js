@@ -5,6 +5,9 @@ const url = require("url");
 const fs = require('fs');
 const os = require("os");
 
+const uuidV1 = require('uuid/v1');
+
+
 module.exports={
 
     fs:fs,
@@ -18,6 +21,7 @@ module.exports={
     yuri2Format:require("./lib/format"),
     yuri2Array:require("./lib/array"),
     yuri2Crypto:require("./lib/crypto"),
+    yuri2Server:require("./lib/server"),
 
     /**
      * 如果arr中的元素存在空字符串''，则去掉该空字符串
@@ -32,7 +36,6 @@ module.exports={
         }
         return a;
     },
-
     /**
      * 删除加载缓存并加载模块
      * @return object (exports)
@@ -41,13 +44,11 @@ module.exports={
         delete require.cache[require.resolve(requirePath)];
         return require(requirePath);
     },
-
     /** 替换全部
      * @return string */
     strReplaceAll(str,needle,replace){
         return str.split(needle).join(replace)
     },
-
     /** sleep
      * @usage await sleep(3000); */
     sleep(time) {
@@ -57,19 +58,20 @@ module.exports={
             }, time);
         })
     },
-
     dump(value){
         console.log(value);
     },
-
-    inspect(value){
-        return util.inspect(value)
+    inspect(value,pre=false){
+        let ins= util.inspect(value);
+        return ins?`<pre>${ins}</pre>`:ins;
+    },
+    uuid(){
+        return uuidV1();
     },
     randInt: function (n, m) {
         let c = m - n + 1;
         return Math.floor(Math.random() * c + n);
     },
-
     /** 
      * 从koa2提取的composer设计
      * 返回一个接受ctx形参的方法
@@ -118,6 +120,11 @@ module.exports={
                 }
             }
         }
-    }
+    },
+    /** 删除缓存的加载模块 */
+    requireWithoutCache(require_path){
+        delete require.cache[require.resolve(require_path)];
+        return require(require_path);
+    },
 
 };
