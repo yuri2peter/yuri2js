@@ -22,6 +22,7 @@ module.exports={
     yuri2Array:require("./lib/array"),
     yuri2Crypto:require("./lib/crypto"),
     yuri2Server:require("./lib/server"),
+    yuri2WaitMe:require("./lib/wait-me"),
 
     /**
      * 如果arr中的元素存在空字符串''，则去掉该空字符串
