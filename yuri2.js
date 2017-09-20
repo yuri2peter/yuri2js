@@ -128,4 +128,22 @@ module.exports={
         return require(require_path);
     },
 
+    /**
+     * 合并两个json数组，后者覆盖前者相同的key，返回新的json
+     * */
+    jsonMerge(json1,json2){
+        let rel={};
+        for(let i in json1){
+            rel[i]=json1[i];
+        }
+        for(let j in json2){
+            rel[j]=json2[j];
+        }
+        return rel;
+    },
+
+    //是否是json对象
+    isJson: function (obj) {
+        return (typeof(obj) === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length);
+    }
 };
