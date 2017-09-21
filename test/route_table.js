@@ -11,6 +11,7 @@ module.exports=function (router) {
                 <input type="submit">
             </form>
         `);
+        console.log(a.b);
         await next();
     });
     router.post('/',async function (ctx,next) {
