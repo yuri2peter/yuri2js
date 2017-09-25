@@ -15,6 +15,9 @@ module.exports={
     util:util,
     url:url,
     os:os,
+    requestPromise:require("request-promise"),
+    cheerio:require("cheerio"),
+
     yuri2Cache:require("./lib/cache"),
     yuri2File:require("./lib/file"),
     yuri2Lock:require("./lib/lock"),
@@ -148,7 +151,7 @@ module.exports={
         return (typeof(obj) === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length);
     },
 
-    timestamp(){
-        return Math.floor(Date.now()/1000);
+    timestamp(ms=false){
+        return ms?Date.now():Math.floor(Date.now()/1000);
     }
 };

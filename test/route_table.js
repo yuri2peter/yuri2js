@@ -2,13 +2,12 @@
 const yuri2=require('../yuri2');
 module.exports=function (router) {
     router.get('/test',async function (ctx,next) {
-        ctx.dump(ctx.req.cookies);
-        if(ctx.session.a){
-            ctx.session.a++;
-        }else {
-            ctx.session.a=1;
-        }
-        ctx.dump(ctx.session);
+        let requestPromise=ctx.yuri2.requestPromise;
+        await requestPromise('http://win10ui.yuri2.cn').then(function (parsedBody) {
+            let cheerio = require('cheerio');
+            const $ = cheerio.load(parsedBody);
+            ctx.dump($('body').html());
+        });
         await next();
     });
     router.get('/',async function (ctx,next) {
