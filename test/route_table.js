@@ -1,6 +1,16 @@
 //动态加载路由表
 const yuri2=require('../yuri2');
 module.exports=function (router) {
+    router.get('/test',async function (ctx,next) {
+        ctx.dump(ctx.req.cookies);
+        if(ctx.session.a){
+            ctx.session.a++;
+        }else {
+            ctx.session.a=1;
+        }
+        ctx.dump(ctx.session);
+        await next();
+    });
     router.get('/',async function (ctx,next) {
         ctx.dump(yuri2.yuri2Format.jsonToQuery(ctx.req.gets));
         ctx.res.send(`
@@ -11,7 +21,6 @@ module.exports=function (router) {
                 <input type="submit">
             </form>
         `);
-        console.log(a.b);
         await next();
     });
     router.post('/',async function (ctx,next) {

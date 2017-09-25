@@ -146,5 +146,9 @@ module.exports={
     //是否是json对象
     isJson: function (obj) {
         return (typeof(obj) === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length);
+    },
+
+    timestamp(){
+        return Math.floor(Date.now()/1000);
     }
 };
