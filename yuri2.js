@@ -25,6 +25,7 @@ module.exports={
     yuri2Array:require("./lib/array"),
     yuri2Crypto:require("./lib/crypto"),
     yuri2Server:require("./lib/server"),
+    yuri2ServerDaemon:require("./lib/server-daemon"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
 
@@ -68,7 +69,7 @@ module.exports={
     },
     inspect(value,pre=false){
         let ins= util.inspect(value);
-        return ins?`<pre>${ins}</pre>`:ins;
+        return pre?`<pre>${ins}</pre>`:ins;
     },
     uuid(){
         return uuidV1();
