@@ -9,7 +9,7 @@ const os = require("os");
 const uuidV1 = require('uuid/v1');
 
 
-module.exports={
+module.exports=yuri2js={
 
     fs:fs,
     http:http,
@@ -157,3 +157,32 @@ module.exports={
         return ms?Date.now():Math.floor(Date.now()/1000);
     }
 };
+
+
+//命令行
+let args = process.argv;
+if(args[1]===__filename){
+    switch (args[2]){
+        case 'build':{
+            if(args[3]){
+                if(!yuri2js.yuri2File.isFile('./package.json')){
+                    yuri2js.yuri2File.filePutContent('./package.json',
+`{
+  "name": "yuri2js-project",
+  "version": "0.0.1",
+  "dependencies": {
+    "yuri2js": "*"
+  }
+}
+`);
+                    console.log('File "package.json" was created,please run "npm install" later.');
+                }else{
+                    console.log('File "package.json" detected.');
+                }
+                let name=args[3];
+                yuri2js.yuri2Server.build(name,'./');
+            }
+            break;
+        }
+    }
+}
