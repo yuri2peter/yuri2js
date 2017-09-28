@@ -1,6 +1,6 @@
 {
   "name": "yuri2js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Some useful tools for nodejs development",
   "main": "yuri2.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/yuri2peter/yuri2js.git"
   },
-  "bin":{"server-build":"./lib/bin/server-build.js"},
+  "bin":{"yuri2js":"./lib/bin/shell.js"},
   "dependencies": {
     "cheerio": "^0.22.0",
     "cookie": "^0.3.1",
