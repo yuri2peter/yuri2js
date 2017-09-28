@@ -3,6 +3,7 @@ const http = require('http');
 const util = require('util');
 const url = require("url");
 const fs = require('fs');
+const path = require('path');
 const os = require("os");
 
 const uuidV1 = require('uuid/v1');
@@ -15,6 +16,7 @@ module.exports={
     util:util,
     url:url,
     os:os,
+    path:path,
     requestPromise:require("request-promise"),
     cheerio:require("cheerio"),
 
@@ -25,7 +27,6 @@ module.exports={
     yuri2Array:require("./lib/array"),
     yuri2Crypto:require("./lib/crypto"),
     yuri2Server:require("./lib/server"),
-    yuri2ServerDaemon:require("./lib/server-daemon"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
 
