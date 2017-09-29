@@ -19,6 +19,9 @@ module.exports=yuri2js={
     path:path,
     requestPromise:require("request-promise"),
     cheerio:require("cheerio"),
+    commander:require("commander"),
+    colors:require("colors"),
+    pug:require("pug"),
 
     yuri2Cache:require("./lib/cache"),
     yuri2File:require("./lib/file"),
