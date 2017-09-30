@@ -156,6 +156,13 @@ module.exports=yuri2js={
         return (typeof(obj) === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length);
     },
 
+    //字符串 ，是不是以子串开头
+    isStartWith(str,strWith){
+        if(str.length<strWith.length){return false;}
+        let com=str.substring(0,strWith.length);
+        return com===strWith
+    },
+
     timestamp(ms=false){
         return ms?Date.now():Math.floor(Date.now()/1000);
     }
