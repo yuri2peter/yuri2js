@@ -131,11 +131,6 @@ module.exports=yuri2js={
             }
         }
     },
-    /** 删除缓存的加载模块 */
-    requireWithoutCache(require_path){
-        delete require.cache[require.resolve(require_path)];
-        return require(require_path);
-    },
 
     /**
      * 合并两个json数组，后者覆盖前者相同的key，返回新的json
@@ -165,5 +160,17 @@ module.exports=yuri2js={
 
     timestamp(ms=false){
         return ms?Date.now():Math.floor(Date.now()/1000);
+    },
+
+    getContentTypeByExt(ext){
+        let map=require('./lib/map-mime');
+        if(ext===''){ext='.*'}
+        if(ext.substr(0, 1)!=='.'){
+            ext='.'+ext;
+        }
+        if(!map[ext]){
+            ext='.*';
+        }
+        return map[ext];
     }
 };
