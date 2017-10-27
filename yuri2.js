@@ -29,7 +29,7 @@ module.exports=yuri2js={
     yuri2Format:require("./lib/format"),
     yuri2Array:require("./lib/array"),
     yuri2Crypto:require("./lib/crypto"),
-    yuri2Server:require("./lib/server"),
+    yuri2App:require("./lib/app"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
 
@@ -172,5 +172,9 @@ module.exports=yuri2js={
             ext='.*';
         }
         return map[ext];
+    },
+
+    async(fn){
+        return new Promise(fn)
     }
 };
