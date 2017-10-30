@@ -22,6 +22,7 @@ module.exports=yuri2js={
     commander:require("commander"),
     colors:require("colors"),
     pug:require("pug"),
+    sequelize:require("sequelize"),
 
     yuri2Cache:require("./lib/cache"),
     yuri2File:require("./lib/file"),
