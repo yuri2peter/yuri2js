@@ -1,6 +1,6 @@
 {
   "name": "yuri2js",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Some useful tools for nodejs development",
   "main": "yuri2.js",
   "scripts": {

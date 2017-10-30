@@ -10,7 +10,6 @@ const uuidV1 = require('uuid/v1');
 
 
 module.exports=yuri2js={
-    version:'1.1.2',
     fs:fs,
     http:http,
     util:util,
@@ -33,6 +32,8 @@ module.exports=yuri2js={
     yuri2App:require("./lib/app"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
+
+    version(){return require('./lib/version')},
 
     /**
      * 如果arr中的元素存在空字符串''，则去掉该空字符串
