@@ -1,6 +1,11 @@
 # yuri2js
 Some useful tools for node.js development and a great web dev framework.
 
+* Main Project https://github.com/yuri2peter/yuri2js
+* Issues https://github.com/yuri2peter/yuri2js/issues
+* All Projects https://github.com/yuri2peter
+* Blog https://yuri2.cn
+
 # progress
 
 It can be used for testing and learning by now.
