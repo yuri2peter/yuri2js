@@ -10,7 +10,7 @@ const uuidV1 = require('uuid/v1');
 
 
 module.exports=yuri2js={
-
+    version:'1.1.2',
     fs:fs,
     http:http,
     util:util,
