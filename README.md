@@ -28,3 +28,5 @@ The official version is going to be online.
 ## TODO
 
 * document
+* https or http?request
+* ssl

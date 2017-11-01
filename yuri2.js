@@ -10,6 +10,8 @@ const uuidV1 = require('uuid/v1');
 
 
 module.exports=yuri2js={
+    dir:__dirname, //基准目录
+
     fs:fs,
     http:http,
     util:util,
@@ -22,16 +24,18 @@ module.exports=yuri2js={
     colors:require("colors"),
     pug:require("pug"),
     sequelize:require("sequelize"),
+    cryptos:require("cryptos"),
+    nodeRsa:require("node-rsa"),
 
     yuri2Cache:require("./lib/cache"),
     yuri2File:require("./lib/file"),
     yuri2Lock:require("./lib/lock"),
     yuri2Format:require("./lib/format"),
     yuri2Array:require("./lib/array"),
-    yuri2Crypto:require("./lib/crypto"),
     yuri2App:require("./lib/app"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
+    yuri2String:require("./lib/string"),
 
     version(){return require('./lib/version')},
 
@@ -178,5 +182,29 @@ module.exports=yuri2js={
 
     async(fn){
         return new Promise(fn)
-    }
+    },
+
+    /**
+     * 执行系统命令(自动编码)
+     * @param cmdStr string
+     * @return Promise
+     * */
+    exec(cmdStr){
+        const exec=require('child_process').exec;
+        const binaryEncoding='binary';
+        const os=require('os').platform();
+        const encoding=os==='win32'?'cp936':'utf8';
+        const format=this.yuri2Format;
+        return new Promise(function (resolve,reject) {
+            exec(cmdStr,{encoding:encoding},function (err, stdout, stderr) {
+                if(err){
+                    let errStr=format.iconv(new Buffer(stderr, binaryEncoding), encoding);
+                    reject(errStr)
+                }else{
+                    let output=format.iconv(new Buffer(stdout, binaryEncoding), encoding);
+                    resolve(output)
+                }
+            })
+        })
+    },
 };
