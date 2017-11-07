@@ -8,7 +8,7 @@ Some useful tools for node.js development and a great web dev framework.
 
 ## Version
 
-1.2.0
+1.2.1
 
 ## Progress
 

@@ -20,10 +20,7 @@ module.exports=yuri2js={
     path:path,
     requestPromise:require("request-promise"),
     cheerio:require("cheerio"),
-    commander:require("commander"),
     colors:require("colors"),
-    pug:require("pug"),
-    sequelize:require("sequelize"),
     cryptos:require("cryptos"),
 
     yuri2Cache:require("./lib/cache"),
