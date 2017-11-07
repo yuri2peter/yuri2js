@@ -6,27 +6,30 @@ Some useful tools for node.js development and a great web dev framework.
 * All Projects https://github.com/yuri2peter
 * Blog https://yuri2.cn
 
-# Progress
+## Version
 
-It can be used for testing and learning by now.
+1.2.0
+
+## Progress
+
+Refactoring...
 
 >Not recommended for actual project dependencies.
 The official version is going to be online.
 
-# Get Start
+## Get Start
 
-1. npm install yuri2js -g
-2. cd /your-project
-3. yuri2js build app
-4. node ./app index.js
+`npm install yuri2js`
 
-# Global Orders
+## Global Orders
 
-* build   :build a simple web app.
 * version :check the version of yuri2js.
 
 ## TODO
 
 * document
-* https or http?request
-* ssl
+
+## ChangeLog
+
+### v1.2.0
+* Remain independent.Separating web app and Middleware.

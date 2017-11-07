@@ -25,7 +25,6 @@ module.exports=yuri2js={
     pug:require("pug"),
     sequelize:require("sequelize"),
     cryptos:require("cryptos"),
-    nodeRsa:require("node-rsa"),
 
     yuri2Cache:require("./lib/cache"),
     yuri2File:require("./lib/file"),
@@ -36,6 +35,7 @@ module.exports=yuri2js={
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
     yuri2String:require("./lib/string"),
+    yuri2Rsa:require("./lib/rsa"),
 
     version(){return require('./lib/version')},
 
@@ -155,13 +155,6 @@ module.exports=yuri2js={
     //是否是json对象
     isJson: function (obj) {
         return (typeof(obj) === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length);
-    },
-
-    //字符串 ，是不是以子串开头
-    isStartWith(str,strWith){
-        if(str.length<strWith.length){return false;}
-        let com=str.substring(0,strWith.length);
-        return com===strWith
     },
 
     timestamp(ms=false){
