@@ -31,5 +31,10 @@ The official version is going to be online.
 
 ## ChangeLog
 
+### v1.2.2
+
+* better tool "lock"
+
 ### v1.2.0
+
 * Remain independent.Separating web app and Middleware.

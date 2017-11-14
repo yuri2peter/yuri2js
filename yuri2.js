@@ -28,11 +28,12 @@ module.exports=yuri2js={
     yuri2Lock:require("./lib/lock"),
     yuri2Format:require("./lib/format"),
     yuri2Array:require("./lib/array"),
-    yuri2App:require("./lib/app"),
     yuri2WaitMe:require("./lib/wait-me"),
     yuri2Cli:require("./lib/cli"),
     yuri2String:require("./lib/string"),
     yuri2Rsa:require("./lib/rsa"),
+    yuri2Basic:require("./lib/Basic"),
+    yuri2Spider:require("./lib/Spider"),
 
     version(){return require('./lib/version')},
 

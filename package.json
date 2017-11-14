@@ -1,6 +1,6 @@
 {
   "name": "yuri2js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Some useful tools for nodejs development",
   "main": "yuri2.js",
   "scripts": {
@@ -31,7 +31,14 @@
   "keywords": [
     "nodejs",
     "yuri2",
-    "tools"
+    "tool",
+    "file",
+    "lock",
+    "server",
+    "web",
+    "format",
+    "rsa",
+    "string"
   ],
   "author": {
     "name": "yuri2",
